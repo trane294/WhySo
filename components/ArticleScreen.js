@@ -25,7 +25,7 @@ var IMAGE_HEIGHT = IMAGE_WIDTH / 2;
 class ArticleScreen extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View>
                     <Image source={{ uri: this.props.image }} style={styles.bgImage} />
                     <View style={styles.overlay}>
@@ -36,7 +36,7 @@ class ArticleScreen extends Component {
                     style={styles.mainText}>
                     <Text style={styles.text}>{this.props.text}</Text>
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 };
@@ -44,8 +44,6 @@ class ArticleScreen extends Component {
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 60,
-        justifyContent: 'center',
         backgroundColor: '#e3e3e3'
     },
     bgImage: {

@@ -1,5 +1,6 @@
 var React = require('react-native');
 var RefreshableListView = require('react-native-refreshable-listview');
+var TimeAgo = require('react-native-timeago');
 
 var {
     StyleSheet,
@@ -32,7 +33,7 @@ var Main = React.createClass({
     },
     componentWillMount: function() {
         this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
-        this.firebaseRef.orderByChild('created').limitToLast(7).on('value', function(dataSnapshot) {
+        this.firebaseRef.orderByChild('created').limitToLast(7).once('value', function(dataSnapshot) {
             var items = [];
             dataSnapshot.forEach(function(childSnapshot) {
                 var item = childSnapshot.val();
@@ -65,7 +66,7 @@ var Main = React.createClass({
                     <View style={styles.overlay}>
                         <Text style={styles.title}>{item.title}</Text>
                     </View>
-                    <Text style={styles.created}>{item.created}</Text>
+                    <TimeAgo style={styles.created} time={item.created} />
                 </View>
             </TouchableHighlight>
         );
@@ -81,7 +82,7 @@ var Main = React.createClass({
 
         if (this.state.loadMore == true) {
             this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
-            this.firebaseRef.orderByChild('created').endAt(this.state.lastTs-1).limitToLast(7).on('value', function(dataSnapshot) {
+            this.firebaseRef.orderByChild('created').endAt(this.state.lastTs-1).limitToLast(7).once('value', function(dataSnapshot) {
                 var items = [];
                 dataSnapshot.forEach(function(childSnapshot) {
                     var item = childSnapshot.val();
@@ -107,7 +108,7 @@ var Main = React.createClass({
         }
     },
     reload: function() {
-        return Main.reload()
+        console.log(123);
     },
     getDataSource: function (users):ListView.DataSource {
         this._data = this._data.concat(users);
@@ -186,7 +187,9 @@ var styles = StyleSheet.create({
 var indicatorStylesheet = StyleSheet.create({
   wrapper: {
     backgroundColor: '#ffffff',
-    height: 60,
+    justifyContent: 'center',
+    height: 40,
+    paddingBottom: 10
   },
 })
 
