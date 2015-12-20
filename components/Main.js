@@ -108,7 +108,27 @@ var Main = React.createClass({
         }
     },
     reload: function() {
-        console.log(123);
+        this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
+        this.firebaseRef.orderByChild('created').limitToLast(7).once('value', function(dataSnapshot) {
+            var items = [];
+            dataSnapshot.forEach(function(childSnapshot) {
+                var item = childSnapshot.val();
+                item['.key'] = childSnapshot.key();
+                items.push(item);
+            }.bind(this));
+
+            this._data = [];
+            this.setState({
+                dataSource: new ListView.DataSource({
+                    rowHasChanged: (row1, row2) => row1 !== row2,
+                })
+            });
+            this.setState({
+                isLoading: false,
+                lastTs: items[0].created,
+                dataSource: this.getDataSource(items.reverse())
+            });
+        }.bind(this));
     },
     getDataSource: function (users):ListView.DataSource {
         this._data = this._data.concat(users);
