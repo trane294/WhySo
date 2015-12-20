@@ -33,7 +33,7 @@ var Main = React.createClass({
     },
     componentWillMount: function() {
         this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
-        this.firebaseRef.orderByChild('created').limitToLast(7).once('value', function(dataSnapshot) {
+        this.firebaseRef.orderByChild('created').limitToLast(10).once('value', function(dataSnapshot) {
             var items = [];
             dataSnapshot.forEach(function(childSnapshot) {
                 var item = childSnapshot.val();
@@ -72,6 +72,7 @@ var Main = React.createClass({
         );
     },
     onEndReached: function () {
+        console.log(123);
         if (this.state.isLoadingTail) {
             // We're already fetching
             return;
@@ -82,7 +83,7 @@ var Main = React.createClass({
 
         if (this.state.loadMore == true) {
             this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
-            this.firebaseRef.orderByChild('created').endAt(this.state.lastTs-1).limitToLast(7).once('value', function(dataSnapshot) {
+            this.firebaseRef.orderByChild('created').endAt(this.state.lastTs-1).limitToLast(10).once('value', function(dataSnapshot) {
                 var items = [];
                 dataSnapshot.forEach(function(childSnapshot) {
                     var item = childSnapshot.val();
@@ -109,7 +110,7 @@ var Main = React.createClass({
     },
     reload: function() {
         this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
-        this.firebaseRef.orderByChild('created').limitToLast(7).once('value', function(dataSnapshot) {
+        this.firebaseRef.orderByChild('created').limitToLast(10).once('value', function(dataSnapshot) {
             var items = [];
             dataSnapshot.forEach(function(childSnapshot) {
                 var item = childSnapshot.val();
