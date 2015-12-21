@@ -1,5 +1,7 @@
 'use strict'
 
+// react-native bundle --entry-file index.ios.js --platform ios --dev false --bundle-output ios/app/production.jsbundle
+
 var React = require('react-native')
 var {
   AppRegistry,

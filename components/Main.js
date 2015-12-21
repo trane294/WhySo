@@ -72,7 +72,6 @@ var Main = React.createClass({
         );
     },
     onEndReached: function () {
-        console.log(123);
         if (this.state.isLoadingTail) {
             // We're already fetching
             return;
@@ -109,6 +108,15 @@ var Main = React.createClass({
         }
     },
     reload: function() {
+        if (this.state.isLoadingTail) {
+            // We're already fetching
+            return;
+        }
+        this.setState({
+            loadMore: true,
+            isLoadingTail: true
+        });
+
         this.firebaseRef = new Firebase('https://whyapp.firebaseio.com/articles');
         this.firebaseRef.orderByChild('created').limitToLast(10).once('value', function(dataSnapshot) {
             var items = [];
@@ -120,12 +128,13 @@ var Main = React.createClass({
 
             this._data = [];
             this.setState({
+                lastTs: 0,
                 dataSource: new ListView.DataSource({
                     rowHasChanged: (row1, row2) => row1 !== row2,
                 })
             });
             this.setState({
-                isLoading: false,
+                isLoadingTail: false,
                 lastTs: items[0].created,
                 dataSource: this.getDataSource(items.reverse())
             });

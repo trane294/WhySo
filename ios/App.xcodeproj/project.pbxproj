@@ -31,6 +31,8 @@
 		B890C8F31C2673F20054880B /* 180px.png in Resources */ = {isa = PBXBuildFile; fileRef = B890C8EE1C2673F20054880B /* 180px.png */; };
 		B890C8F61C2674350054880B /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B890C8F41C2674350054880B /* bg.png */; };
 		B890C8F71C2674350054880B /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = B890C8F51C2674350054880B /* title.png */; };
+		B8A3DE531C27779C0068E619 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = B8A3DE521C27779C0068E619 /* main.jsbundle */; };
+		B8A3DE631C27AA7C0068E619 /* production.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = B8A3DE621C27AA7C0068E619 /* production.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +116,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
@@ -143,6 +144,8 @@
 		B890C8EE1C2673F20054880B /* 180px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180px.png; path = ../icons/180px.png; sourceTree = "<group>"; };
 		B890C8F41C2674350054880B /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = ../bg.png; sourceTree = "<group>"; };
 		B890C8F51C2674350054880B /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = ../title.png; sourceTree = "<group>"; };
+		B8A3DE521C27779C0068E619 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = App/main.jsbundle; sourceTree = "<group>"; };
+		B8A3DE621C27AA7C0068E619 /* production.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = production.jsbundle; path = App/production.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,7 +252,8 @@
 		13B07FAE1A68108700A75B9A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				B8A3DE621C27AA7C0068E619 /* production.jsbundle */,
+				B8A3DE521C27779C0068E619 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -533,9 +537,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A3DE631C27AA7C0068E619 /* production.jsbundle in Resources */,
 				B890C8EF1C2673F20054880B /* 58px.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B890C8F71C2674350054880B /* title.png in Resources */,
+				B8A3DE531C27779C0068E619 /* main.jsbundle in Resources */,
 				B890C8F61C2674350054880B /* bg.png in Resources */,
 				B890C8F01C2673F20054880B /* 80px.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
