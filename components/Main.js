@@ -165,8 +165,8 @@ var Main = React.createClass({
     renderLoadingView: function() {
         return (
         <View style={styles.loading}>
-            <ActivityIndicatorIOS size='large'/>
-            <Text>
+            <ActivityIndicatorIOS color='white' size='large'/>
+            <Text style={styles.loadingText}>
                 Loading...
             </Text>
         </View>
@@ -178,7 +178,13 @@ var styles = StyleSheet.create({
     loading: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#234465'
+    },
+    loadingText: {
+        color: 'white',
+        fontSize: 16,
+        marginTop: 15
     },
     container: {
         flex: 1,
