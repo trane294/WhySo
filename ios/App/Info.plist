@@ -36,14 +36,14 @@
 		<string>BebasNeue Bold.otf</string>
 		<string>BreeSerif-Regular.otf</string>
 	</array>
-	<key>UILaunchImageFile</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

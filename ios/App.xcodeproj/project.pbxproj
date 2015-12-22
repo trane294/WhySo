@@ -32,7 +32,8 @@
 		B890C8F61C2674350054880B /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B890C8F41C2674350054880B /* bg.png */; };
 		B890C8F71C2674350054880B /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = B890C8F51C2674350054880B /* title.png */; };
 		B8A3DE531C27779C0068E619 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = B8A3DE521C27779C0068E619 /* main.jsbundle */; };
-		B8A3DE631C27AA7C0068E619 /* production.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = B8A3DE621C27AA7C0068E619 /* production.jsbundle */; };
+		B8A3DE651C2920660068E619 /* bg in Resources */ = {isa = PBXBuildFile; fileRef = B8A3DE641C2920660068E619 /* bg */; };
+		B8A3DE671C2924780068E619 /* production.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = B8A3DE661C2924780068E619 /* production.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,7 +146,8 @@
 		B890C8F41C2674350054880B /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = ../bg.png; sourceTree = "<group>"; };
 		B890C8F51C2674350054880B /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = ../title.png; sourceTree = "<group>"; };
 		B8A3DE521C27779C0068E619 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = App/main.jsbundle; sourceTree = "<group>"; };
-		B8A3DE621C27AA7C0068E619 /* production.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = production.jsbundle; path = App/production.jsbundle; sourceTree = "<group>"; };
+		B8A3DE641C2920660068E619 /* bg */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bg; path = ../bg; sourceTree = "<group>"; };
+		B8A3DE661C2924780068E619 /* production.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = production.jsbundle; path = App/production.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +254,7 @@
 		13B07FAE1A68108700A75B9A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				B8A3DE621C27AA7C0068E619 /* production.jsbundle */,
+				B8A3DE661C2924780068E619 /* production.jsbundle */,
 				B8A3DE521C27779C0068E619 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -307,6 +309,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B8A3DE641C2920660068E619 /* bg */,
 				B890C8EA1C2673F20054880B /* 58px.png */,
 				B890C8EB1C2673F20054880B /* 80px.png */,
 				B890C8EC1C2673F20054880B /* 87px.png */,
@@ -537,7 +540,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8A3DE631C27AA7C0068E619 /* production.jsbundle in Resources */,
 				B890C8EF1C2673F20054880B /* 58px.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B890C8F71C2674350054880B /* title.png in Resources */,
@@ -545,7 +547,9 @@
 				B890C8F61C2674350054880B /* bg.png in Resources */,
 				B890C8F01C2673F20054880B /* 80px.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				B8A3DE671C2924780068E619 /* production.jsbundle in Resources */,
 				B890C8F21C2673F20054880B /* 120px.png in Resources */,
+				B8A3DE651C2920660068E619 /* bg in Resources */,
 				B890C8E91C2673E20054880B /* BebasNeue Bold.otf in Resources */,
 				B890C8F11C2673F20054880B /* 87px.png in Resources */,
 				B890C8F31C2673F20054880B /* 180px.png in Resources */,
@@ -654,6 +658,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -673,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
