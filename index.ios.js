@@ -8,7 +8,7 @@ var {
   StyleSheet,
   NavigatorIOS,
   Text,
-  View,
+  View
 } = React
 
 var Routes = require('./Routes')
