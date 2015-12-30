@@ -8,11 +8,7 @@
  */
 
 #import "AppDelegate.h"
-
 #import "RCTRootView.h"
-
-#import "RCTPushNotificationManager.h"
-
 #import <Parse/Parse.h>
 
 @implementation AppDelegate

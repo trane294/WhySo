@@ -1,23 +1,17 @@
 var React = require('react-native');
 var RefreshableListView = require('react-native-refreshable-listview');
-var TimeAgo = require('react-native-timeago');
 
 var {
     StyleSheet,
     View,
-    Text,
-    Image,
     ListView,
-    Dimensions,
+    Text,
     ActivityIndicatorIOS,
-    TouchableHighlight
 } = React;
 
 var Firebase = require('firebase');
-var Routes = require('../Routes')
-var WINDOW_HEIGHT = Dimensions.get('window').height;
-var IMAGE_WIDTH = Dimensions.get('window').width;
-var IMAGE_HEIGHT = IMAGE_WIDTH / 2;
+var Routes = require('../Routes');
+var ArticleListItem = require('./ArticleListItem')
 
 var Main = React.createClass({
     getInitialState: function () {
@@ -52,23 +46,15 @@ var Main = React.createClass({
     componentWillUnmount: function() {
         this.firebaseRef.off();
     },
-    goToArticle(story) {
-        this.props.navigator.push(Routes.Article(story))
+    goToArticle(article) {
+        this.props.navigator.push(Routes.Article(article))
     },
     renderRow: function (item) {
         return (
-            <TouchableHighlight onPress={() => this.goToArticle(item)}>
-                <View>
-                    <Image
-                        style={styles.image}
-                        source={{ uri: item.image }}
-                    />
-                    <View style={styles.overlay}>
-                        <Text style={styles.title}>{item.title}</Text>
-                    </View>
-                    <TimeAgo style={styles.created} time={item.created} />
-                </View>
-            </TouchableHighlight>
+            <ArticleListItem
+                onSelectArticle={this.goToArticle}
+                article={item}
+            />
         );
     },
     onEndReached: function () {
@@ -191,33 +177,7 @@ var styles = StyleSheet.create({
         marginTop: 60,
         justifyContent: 'center',
         backgroundColor: '#ffffff',
-    },
-    image: {
-        height: IMAGE_HEIGHT
-    },
-    overlay: {
-        backgroundColor: 'rgba(0,0,0,0.3)',
-        position: 'absolute',
-        top: 0, bottom: 0, left: 0, right: 0
-    },
-    created: {
-        position: 'absolute',
-        bottom: 10, right: 15,
-        color: 'white',
-        opacity: 0.5,
-        backgroundColor: 'transparent',
-        fontSize: 10
-    },
-    title: {
-        fontFamily: 'BebasNeueBold',
-        marginTop: 40,
-        marginRight: 100,
-        marginLeft: 25,
-        fontSize: 20,
-        lineHeight: 25,
-        fontWeight: '400',
-        color: 'white',
-    },
+    }
 });
 
 var indicatorStylesheet = StyleSheet.create({
