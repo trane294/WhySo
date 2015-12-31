@@ -22,27 +22,57 @@ var ArticleListItem = React.createClass({
     handleSelectArticle() {
         this.props.onSelectArticle(this.props.article)
     },
-    render() {
+    handleShareButton() {
+        console.log(123);
+    },
+    renderMain() {
         var {article} = this.props;
-        
+
         return (
-            <TouchableHighlight onPress={this.handleSelectArticle}>
-                <View>
-                    <Image
-                        style={styles.image}
-                        source={{ uri: article.image }}
-                    />
-                    <View style={styles.overlay}>
-                        <Text style={styles.title}>{article.title}</Text>
+            <View style={{flex: 1}}>
+                <TouchableHighlight onPress={this.handleSelectArticle}>
+                    <View style={{flex: 1}}>
+                        <Image
+                            style={styles.image}
+                            source={{ uri: article.image }}
+                        />
+                        <View style={styles.overlay}>
+                            <Text style={styles.title}>{article.title}</Text>
+                        </View>
+                        <TimeAgo style={styles.created} time={article.created} />
                     </View>
-                    <TimeAgo style={styles.created} time={article.created} />
+                </TouchableHighlight>
+            </View>
+        )
+    },
+    renderButtons() {
+        return (
+            <TouchableHighlight onPress={this.handleShareButton}>
+                <View>
+                    <Image style={styles.share} resizeMode="contain" source={require('../icons/share.png')}/>
                 </View>
             </TouchableHighlight>
+        )
+    },
+    render() {
+        return (
+            <View style={[styles.row, styles.itemRow]}>
+                {this.renderMain()}
+                {this.renderButtons()}
+            </View>
         )
     }
 })
 
 var styles = StyleSheet.create({
+    row: {
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    itemRow: {
+        height: IMAGE_HEIGHT,
+        alignItems: 'stretch'
+    },
     image: {
         height: IMAGE_HEIGHT
     },
@@ -71,8 +101,10 @@ var styles = StyleSheet.create({
     },
     share: {
         position: 'absolute',
-        top: 0, left: 0,
-        backgroundColor: 'transparent'
+        top: 8, right: 8,
+        backgroundColor: 'transparent',
+        width: 30,
+        height: 30
     }
 })
 
