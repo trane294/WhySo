@@ -14,17 +14,17 @@ var {
 var Routes = require('./Routes')
 
 var App = React.createClass({
-  render: function() {
-    return (
-      <NavigatorIOS
-        barTintColor='#234465'
-        titleTextColor='#fff'
-        tintColor='#fff'
-        style={styles.container}
-        initialRoute={Routes.TopStories()}
-      />
-    )
-  }
+    render: function() {
+        return (
+            <NavigatorIOS
+                barTintColor='#234465'
+                titleTextColor='#fff'
+                tintColor='#fff'
+                style={styles.container}
+                initialRoute={Routes.TopStories()}
+            />
+        )
+    }
 })
 
 var styles = StyleSheet.create({
