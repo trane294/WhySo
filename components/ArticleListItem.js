@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var TimeAgo = require('react-native-timeago');
+var ActivityView = require('react-native-activity-view');
 
 var {
     StyleSheet,
@@ -22,8 +23,13 @@ var ArticleListItem = React.createClass({
     handleSelectArticle() {
         this.props.onSelectArticle(this.props.article)
     },
-    handleShareButton() {
-        console.log(123);
+    _handleShareButton() {
+        var {article} = this.props;
+        ActivityView.show({
+            text: article.title,
+            url: 'https://whysoapp.com',
+            imageUrl: article.image
+        });
     },
     renderMain() {
         var {article} = this.props;
@@ -47,7 +53,7 @@ var ArticleListItem = React.createClass({
     },
     renderButtons() {
         return (
-            <TouchableHighlight onPress={this.handleShareButton}>
+            <TouchableHighlight onPress={this._handleShareButton}>
                 <View>
                     <Image style={styles.share} resizeMode="contain" source={require('../icons/share.png')}/>
                 </View>
