@@ -21,7 +21,7 @@ class Routes {
             component: require('./components/ArticleScreen'),
             title: article.title,
             passProps: article,
-            rightButtonIcon: require('./icons/icon-share.png'),
+            rightButtonIcon: require('image!icon-share'),
             onRightButtonPress: () => {
                 ActivityView.show({
                     text: article.title,

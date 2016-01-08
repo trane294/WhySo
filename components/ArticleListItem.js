@@ -55,7 +55,7 @@ var ArticleListItem = React.createClass({
         return (
             <TouchableHighlight onPress={this._handleShareButton}>
                 <View>
-                    <Image style={styles.share} resizeMode="contain" source={require('../icons/share.png')}/>
+                    <Image style={styles.share} resizeMode="contain" source={require('image!share')}/>
                 </View>
             </TouchableHighlight>
         )
